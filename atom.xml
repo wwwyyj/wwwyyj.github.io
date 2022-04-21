@@ -36,4 +36,25 @@
     
   </entry>
   
+  <entry>
+    <title>GitHub 搭建图床</title>
+    <link href="http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <published>2022-04-12T16:00:00.000Z</published>
+    <updated>2022-04-21T12:24:04.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床</p><h3 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h3><blockquote><p>在搭建前需要确保你拥有一个github账号，没有的话快去注册一个→ <a href="https://github.com/signup">传送门</a>  </p></blockquote><h4 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h4><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421165817401.png"></p><p>创建是仓库选择公开，其他可以使用默认配置，完成点击创建</p><h4 id="使用PicGo上传图片"><a href="#使用PicGo上传图片" class="headerlink" title="使用PicGo上传图片"></a>使用PicGo上传图片</h4><p>PicGo是一个开源软件，使用它能更方便简单的上传图片，并且国内访问github延时高我们上传时可以通过picgo拼接cdn，也可以生成markdown地址方便我们直接使用。</p><h5 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h5><blockquote><p><a href="https://molunerfinn.com/PicGo/">https://molunerfinn.com/PicGo/</a></p></blockquote><h5 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h5><p>首先需要在GitHub上配置token 用于picgo操作github仓库<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170321339.png" style="zoom:50%;" />然后在最底部找到Developer settings<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170359013.png" style="zoom:33%;" /></p><p>然后和图示相同创建一条token<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170450895.png"></p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170653597.png"></p><p>这时就会产生一条token，！！！(这里token要保存下来，因为只显示一次 没保存下次又要重新来过了。然后我们打开picgo的GitHub图床设置如下图 填写仓库名称也就是[用户名&#x2F;仓库名称], token填写刚刚的，这里可以设置自定义域名也可以置空默认，这里我填的时jsdelivr的cdn加速</p><blockquote><p><a href="https://cdn.jsdelivr.net/gh/[%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%90%8D]">https://cdn.jsdelivr.net/gh/[用户名/仓库名]</a></p></blockquote><p>这里要注意一定要设置为默认图床，不然默认会使用sm图床可能会报错~</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/Snipaste_2022-04-21_17-54-25.png"></p><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>搭建到这里就完成了，前面使用了 PicGo 工具快速上传图片并获取图片 URL 链接，方便了很多，但是每次都要先在 PicGo 中进行上传，然后将剪切板中链接复制到 MarkDown 编辑器中，有没有更优雅简便的方式，可以将两步合二为一呢？</p><p>可以通过设置typora结合picgo将步骤化繁为简</p><h5 id="Typora配置PicGo上传"><a href="#Typora配置PicGo上传" class="headerlink" title="Typora配置PicGo上传"></a>Typora配置PicGo上传</h5><h6 id="PicGo端"><a href="#PicGo端" class="headerlink" title="PicGo端"></a>PicGo端</h6><p>打开picgo设置找到设置server 开放，设置成打开并开放36677端口 新版默认都是打开的，打开的查看确认下就好</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/serverPort.png"></p><h6 id="Typora端"><a href="#Typora端" class="headerlink" title="Typora端"></a>Typora端</h6><p>打开Typora选择   <strong><code>文件→偏好设置</code></strong>   然后选择  <strong><code>图像</code></strong>  接着按照图片上的序号操作这样写文章时直接复制图片到md文件中就能够自动上传了</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421201320799.png" alt="image-20220421201320799"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床&lt;/p&gt;
+&lt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
 </feed>

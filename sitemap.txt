@@ -1,3 +1,4 @@
+http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/
 http://example.com/shuoshuo/index.html
 http://example.com/about/index.html
 http://example.com/link/index.html
