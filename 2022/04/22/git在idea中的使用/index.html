@@ -1,0 +1,218 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>git在idea中的使用 | 忘忧君の部落格</title><meta name="author" content="忘忧君"><meta name="copyright" content="忘忧君"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="之前我们记录了git通过命令行对文件的版本控制，现在写一下git结合idea工具实现仓库管理的操作 准备工作 IDEA的上传还是依赖了Git工具，所以还是需要保证已经安装过该工具  打开idea 选择 【File】→【setting】 在输入框中搜索 git  找到git的相关设置， 在Path to Git executable 设置框找到你安装的目录，默认idea会自动找，如果显示路径正确点击">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git在idea中的使用">
+<meta property="og:url" content="http://example.com/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="忘忧君の部落格">
+<meta property="og:description" content="之前我们记录了git通过命令行对文件的版本控制，现在写一下git结合idea工具实现仓库管理的操作 准备工作 IDEA的上传还是依赖了Git工具，所以还是需要保证已经安装过该工具  打开idea 选择 【File】→【setting】 在输入框中搜索 git  找到git的相关设置， 在Path to Git executable 设置框找到你安装的目录，默认idea会自动找，如果显示路径正确点击">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/15191.jpg">
+<meta property="article:published_time" content="2022-04-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-22T09:39:41.063Z">
+<meta property="article:author" content="忘忧君">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/15191.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'git在idea中的使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-22 17:39:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="忘忧君の部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422173925629.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">忘忧君の部落格</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">git在idea中的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-21T16:00:00.000Z" title="发表于 2022-04-22 00:00:00">2022-04-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-22T09:39:41.063Z" title="更新于 2022-04-22 17:39:41">2022-04-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="git在idea中的使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>之前我们记录了git通过命令行对文件的版本控制，现在写一下git结合idea工具实现仓库管理的操作</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><blockquote>
+<p>IDEA的上传还是依赖了Git工具，所以还是需要保证已经安装过该工具</p>
+</blockquote>
+<p>打开idea 选择 【File】→【setting】</p>
+<p>在输入框中搜索 <code>git</code>  找到git的相关设置， 在Path to Git executable 设置框找到你安装的目录，默认idea会自动找，如果显示路径正确点击后方 test 按钮 ，如连接成功idea会弹框git的版本，如下图所示</p>
+<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422110935967.png" alt="image-20220422110935851" style="zoom:80%;" />
+
+
+
+<h2 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h2><p>idea的git操作过程与命令好无异，相当于git的图形化界面操作，同样我们从创建开始记录。</p>
+<h3 id="创建git项目"><a href="#创建git项目" class="headerlink" title="创建git项目"></a>创建git项目</h3><p>创建git项目主要分为两种，已经创建的项目加入git管理和直接克隆git项目</p>
+<h4 id="已创建项目加入git管理"><a href="#已创建项目加入git管理" class="headerlink" title="已创建项目加入git管理"></a>已创建项目加入git管理</h4><p>这里我们简单创建了一个git项目用来演示，这时的项目还是非git管理，</p>
+<h5 id="初始化仓库"><a href="#初始化仓库" class="headerlink" title="初始化仓库"></a>初始化仓库</h5><p>点击菜单栏  <code>VAS</code>  选择创建git 仓库 如下图所示</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422133921414.png" alt="image-20220422133921414"></p>
+<p>这时idea就会弹出选择创建位置的目录，默认会选中当前项目的工作区，这一步就类似于 <code>git init</code> ，我们直接选择ok即可</p>
+<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422134125145.png" alt="image-20220422134125145" style="zoom:50%;" />
+
+<p>点击ok后初始化工作就做完了，在菜单栏上能看到git的快捷工具栏，右下角也能够看到git的分支等信息</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422134343234.png" alt="image-20220422134343234"></p>
+<h5 id="关联远程仓库"><a href="#关联远程仓库" class="headerlink" title="关联远程仓库"></a>关联远程仓库</h5><p>菜单栏找到 <code>vcs</code>→ <code>git</code> 这时的菜单出现了我们熟悉的命令 诸如分支、标签和合并等，这是我们选择<code>remotes</code>  </p>
+<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422144256868.png" alt="image-20220422144256868" style="zoom: 50%;" />
+
+<p>这时弹出小窗我们点击添加，然后再url位置输入git的仓库地址 点击ok 界面上就出现了关联的远程仓库地址</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422144812988.png" alt="image-20220422144812988"></p>
+<h4 id="直接克隆git项目"><a href="#直接克隆git项目" class="headerlink" title="直接克隆git项目"></a>直接克隆git项目</h4><h3 id="添加到暂存区"><a href="#添加到暂存区" class="headerlink" title="添加到暂存区"></a>添加到暂存区</h3><p>创建新文件时idea都会默认询问是否进行add操作，如下图，我们点击yes即可完成add操作</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422142620036.png" alt="image-20220422142620036"></p>
+<p>右键项目或文件 找到<code>git</code>→<code>add</code> 这时可以看到文件名从原来的红色变成了绿色</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422143421904.png" alt="image-20220422143421904"></p>
+<h3 id="提交到版本库"><a href="#提交到版本库" class="headerlink" title="提交到版本库"></a>提交到版本库</h3><p>这时我们已经完成了文件的添加操作，通过git快捷菜单或者右击项目找到git菜单中的push</p>
+<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422151213352.png" alt="image-20220422151213352" style="zoom:50%;" />
+
+<p>这里推荐用快捷菜单的 <code>√</code> 按钮，弹出commit框，点击commit按钮右边的小三角可以将commit和push合并到同一部这样节省一部操作</p>
+<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422151808951.png" alt="image-20220422151808951" style="zoom:67%;" />
+
+<p>完成了这里的操作就会在右下角得到系统反馈 这里是上传成功如下图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422151924812.png" alt="image-20220422151924812"></p>
+<h3 id="拉取远程代码"><a href="#拉取远程代码" class="headerlink" title="拉取远程代码"></a>拉取远程代码</h3><p>同样找到git菜单 这里选择pull命令 直接选择pull即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422153011648.png" alt="image-20220422153011648"></p>
+<p>完成后底部会弹出本次更新的文件内容，因为我们的演示内容 刚刚提交pull下来可能会是空返回 所以这里我们再远程仓库里添加了readme文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422153637096.png" alt="image-20220422153637096"></p>
+<h3 id="处理分支"><a href="#处理分支" class="headerlink" title="处理分支"></a>处理分支</h3><h4 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h4><p>同样通过vcs找到git命令 选择<code>branches</code> </p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422161025897.png" alt="image-20220422161025897"></p>
+<p>单击ok这样就创建并切换到新分支了 这时我们再以同样的方式将新分支push上去 git会自动创建新分支 上传完成后远程仓库新分支就创建好了</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422161704363.png" alt="image-20220422161704363"></p>
+<h4 id="合并分支"><a href="#合并分支" class="headerlink" title="合并分支"></a>合并分支</h4><p>右下角点击分支 点击要合并的分支 选择 <code>Merge into Current</code>即可</p>
+<p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220422164134209.png" alt="image-20220422164134209"></p>
+<p>暂时就先记录这些 后续再补充(<em>^_^</em>)</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">忘忧君</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/">http://example.com/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">忘忧君の部落格</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/15191.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/04/16/hello-world/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">忘忧君</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">开始操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgit%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.</span> <span class="toc-text">创建git项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B7%B2%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E5%8A%A0%E5%85%A5git%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">已创建项目加入git管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">初始化仓库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.1.1.2.</span> <span class="toc-text">关联远程仓库</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%85%8B%E9%9A%86git%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.1.2.</span> <span class="toc-text">直接克隆git项目</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%B0%E6%9A%82%E5%AD%98%E5%8C%BA"><span class="toc-number">2.2.</span> <span class="toc-text">添加到暂存区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E5%88%B0%E7%89%88%E6%9C%AC%E5%BA%93"><span class="toc-number">2.3.</span> <span class="toc-text">提交到版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%A8%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">2.4.</span> <span class="toc-text">拉取远程代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%88%86%E6%94%AF"><span class="toc-number">2.5.</span> <span class="toc-text">处理分支</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-number">2.5.1.</span> <span class="toc-text">创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-number">2.5.2.</span> <span class="toc-text">合并分支</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git在idea中的使用"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/15191.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git在idea中的使用"/></a><div class="content"><a class="title" href="/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git在idea中的使用">git在idea中的使用</a><time datetime="2022-04-21T16:00:00.000Z" title="发表于 2022-04-22 00:00:00">2022-04-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/16/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/04/16/hello-world/" title="Hello World">Hello World</a><time datetime="2022-04-16T08:55:40.674Z" title="发表于 2022-04-16 16:55:40">2022-04-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="GitHub 搭建图床"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/15191.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub 搭建图床"/></a><div class="content"><a class="title" href="/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/" title="GitHub 搭建图床">GitHub 搭建图床</a><time datetime="2022-04-12T16:00:00.000Z" title="发表于 2022-04-13 00:00:00">2022-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/13/git%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" title="Git的相关使用介绍"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git的相关使用介绍"/></a><div class="content"><a class="title" href="/2022/04/13/git%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/" title="Git的相关使用介绍">Git的相关使用介绍</a><time datetime="2022-04-12T16:00:00.000Z" title="发表于 2022-04-13 00:00:00">2022-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 忘忧君</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '028LG3tXWBlTv9KtEc2ln5Uc-MdYXbMMI',
+      appKey: 'Ys3X550qDvrRU8JW5S7KhQTM',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
