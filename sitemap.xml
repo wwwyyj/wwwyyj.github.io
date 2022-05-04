@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://example.com/2021/06/12/%E8%A7%A3%E5%86%B3%E5%B8%83%E5%B0%94%E5%80%BC%E5%8F%98%E9%87%8Fis%E5%BC%80%E5%A4%B4%E6%97%B6%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90getset%E6%B2%A1%E6%9C%89is%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2022-05-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/2022/04/24/ERESOLVE%20unable%20to%20resolve%20dependency%20tree/</loc>
     
     <lastmod>2022-04-24</lastmod>
@@ -94,7 +103,7 @@
 
   <url>
     <loc>http://example.com/</loc>
-    <lastmod>2022-04-24</lastmod>
+    <lastmod>2022-05-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
