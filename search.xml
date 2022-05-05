@@ -69,6 +69,19 @@
     
     
     <entry>
+      <title>关于小程序携带布尔值参数值改变的一点儿记录</title>
+      <link href="/2021/06/12/%E5%85%B3%E4%BA%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%A6%E5%8F%82%E7%B1%BB%E5%9E%8B%E6%94%B9%E5%8F%98%E7%9A%84%E4%B8%80%E7%82%B9%E5%84%BF%E8%AE%B0%E5%BD%95/"/>
+      <url>/2021/06/12/%E5%85%B3%E4%BA%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B8%A6%E5%8F%82%E7%B1%BB%E5%9E%8B%E6%94%B9%E5%8F%98%E7%9A%84%E4%B8%80%E7%82%B9%E5%84%BF%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<ul><li></li></ul><p>小程序从页面携带参数跳转到其他页面是我们通常会这样做</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wx.navigateTo(&#123;</span><br><span class="line">    url: &#x27;/pages/index/detail?id=&#x27; + id + &#x27;&amp;succeedShow=false&#x27;</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure><p>但是 当我们这样做并且携带参数是布尔值时，到达新页面通过onload接收时变量通过 <code>typeof</code>  可见已经由布尔值转变为了字符串的true&#x2F;false，<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220504143618774.png" alt="image-20220504143618774"></p><p>这就导致了不管if还是取反判断都是不成立的。这里我们通过对字符串布尔判断 来使判断成立</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 原三目运算符判断</span><br><span class="line">  succeedShow: options.succeedShow ? options.succeedShow :false</span><br></pre></td></tr></table></figure><p>改为对字符串的判断</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">succeedShow: (options.succeedShow == &quot;true&quot; ? true : false)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>解决布尔值变量is开头时 自动生成get/set没有is的问题</title>
       <link href="/2021/06/12/%E8%A7%A3%E5%86%B3%E5%B8%83%E5%B0%94%E5%80%BC%E5%8F%98%E9%87%8Fis%E5%BC%80%E5%A4%B4%E6%97%B6%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90getset%E6%B2%A1%E6%9C%89is%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2021/06/12/%E8%A7%A3%E5%86%B3%E5%B8%83%E5%B0%94%E5%80%BC%E5%8F%98%E9%87%8Fis%E5%BC%80%E5%A4%B4%E6%97%B6%20%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90getset%E6%B2%A1%E6%9C%89is%E7%9A%84%E9%97%AE%E9%A2%98/</url>
