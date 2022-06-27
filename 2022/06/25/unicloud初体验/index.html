@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>unicloud初体验 | 忘忧君の部落格</title><meta name="author" content="忘忧君"><meta name="copyright" content="忘忧君"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="最近尝试使用unicloud开发了微信小程序，其过程无比艰难(主要因为了解太少… 但还是逐渐得心应手 最终得到想要的效果，那下面就记录一下 我在实践中找过的问题 uniapp项目转 unicloud一开始是准备用前后端分离方式开发的 这样对我来说也更熟练，但转念一想，这个小程序功能简单使用函数和nosql会更清爽，于是改用unicloud，原生微信小程序改云开发是较为麻烦的 需要手动加云函数包改配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="unicloud初体验">
+<meta property="og:url" content="http://example.com/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/index.html">
+<meta property="og:site_name" content="忘忧君の部落格">
+<meta property="og:description" content="最近尝试使用unicloud开发了微信小程序，其过程无比艰难(主要因为了解太少… 但还是逐渐得心应手 最终得到想要的效果，那下面就记录一下 我在实践中找过的问题 uniapp项目转 unicloud一开始是准备用前后端分离方式开发的 这样对我来说也更熟练，但转念一想，这个小程序功能简单使用函数和nosql会更清爽，于是改用unicloud，原生微信小程序改云开发是较为麻烦的 需要手动加云函数包改配">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg">
+<meta property="article:published_time" content="2022-06-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-27T01:27:10.474Z">
+<meta property="article:author" content="忘忧君">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'unicloud初体验',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-06-27 09:27:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"><link rel="alternate" href="/atom.xml" title="忘忧君の部落格" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">忘忧君の部落格</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-fw fa fa-book"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/shuoshuo/"><i class="fa-fw fa-fw fas fa-comment-dots"></i><span> 说说</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">unicloud初体验</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-06-24T16:00:00.000Z" title="发表于 2022-06-25 00:00:00">2022-06-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-06-27T01:27:10.474Z" title="更新于 2022-06-27 09:27:10">2022-06-27</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="unicloud初体验"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>最近尝试使用unicloud开发了微信小程序，其过程无比艰难(主要因为了解太少… 但还是逐渐得心应手 最终得到想要的效果，那下面就记录一下 我在实践中找过的问题</p>
+<h2 id="uniapp项目转-unicloud"><a href="#uniapp项目转-unicloud" class="headerlink" title="uniapp项目转 unicloud"></a>uniapp项目转 unicloud</h2><p>一开始是准备用前后端分离方式开发的 这样对我来说也更熟练，但转念一想，这个小程序功能简单使用函数和nosql会更清爽，于是改用unicloud，原生微信小程序改云开发是较为麻烦的 需要手动加云函数包改配置等等…. 相比之下unicloud就很方便了</p>
+<blockquote>
+<p>默认创建的话 可以看官网的教程 非常easy 下面记录本地项目转云端的方式</p>
+</blockquote>
+<ul>
+<li>创建云环境</li>
+</ul>
+<p>右击项目根目录，创建云环境</p>
+<p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic//image-20220626113224880.png" alt="image-20220626113224880"></p>
+<ul>
+<li>manifest.json文件中获取uniapp的Dcloud Appid</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic//image-20220626113402604.png" alt="image-20220626113402604"></p>
+<ul>
+<li>将创建好的云环境于服务空间关联，有则直接关联 没有则多一步 创建后关联 关联后云环境后将会显示关联的空间名称</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic//image-20220626113623698.png" alt="image-20220626113623698"></p>
+<p>此时就创建完成了，可以开始在环境内创建云函数 在创建时的web端创建云数据库了</p>
+<h2 id="获取openid"><a href="#获取openid" class="headerlink" title="获取openid"></a>获取openid</h2><p>这个就是一个常见话题了 小程序的openid作为用户唯一标识，支付，登录，授权都离不开它。是我们开发小程序必要的 获取的流程图就不贴了微信文档里有，这里把获取的代码贴一下。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> appid = <span class="string">&quot;your appid&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> secret = <span class="string">&quot;your secret&quot;</span>;</span><br><span class="line"><span class="keyword">let</span> url = <span class="string">&quot;https://api.weixin.qq.com/sns/jscode2session?appid=&quot;</span> + appid </span><br><span class="line">			+ <span class="string">&quot;&amp;secret=&quot;</span> + secret </span><br><span class="line">			+ <span class="string">&quot;&amp;js_code=&quot;</span> + res.<span class="property">code</span> </span><br><span class="line">			+ <span class="string">&quot;&amp;grant_type=authorization_code&quot;</span>;</span><br><span class="line">uni.<span class="title function_">request</span>(&#123;</span><br><span class="line">	<span class="attr">url</span>: url, <span class="comment">// 请求路径</span></span><br><span class="line">	<span class="attr">success</span>: <span class="function">(<span class="params">r</span>) =&gt;</span> &#123;&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>一般在后端中就是发起该请求得到openid, 但是<code>https://api.weixin.qq.com</code> 这个域名不能配置在业务域名中， </p>
+<p>所以不能将这个请求写在小程序代码中，后来改用了云函数触发方式得到openid，这里也贴一下代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x27;use strict&#x27;;</span><br><span class="line">exports.main = async (event, context) =&gt; &#123;</span><br><span class="line">	//event为客户端上传的参数</span><br><span class="line">	console.log(&#x27;event : &#x27;, event)</span><br><span class="line">	</span><br><span class="line">	const appid = &#x27;your appid&#x27;;</span><br><span class="line">	const secret = &#x27;your secret&#x27;;</span><br><span class="line">	const apiUrl = &#x27;https://api.weixin.qq.com/sns/jscode2session?appid=&#x27;+appid</span><br><span class="line">					+&#x27;&amp;secret=&#x27;+secret</span><br><span class="line">					+&#x27;&amp;js_code=&#x27;+event.code</span><br><span class="line">					+&#x27;&amp;grant_type=authorization_code&#x27;;</span><br><span class="line">	const res = await uniCloud.httpclient.request(apiUrl, &#123;</span><br><span class="line">		method: &#x27;GET&#x27;,</span><br><span class="line">		data: &#123;&#125;,</span><br><span class="line">		contentType: &#x27;json&#x27;, // 指定以application/json发送data内的数据</span><br><span class="line">		dataType: &#x27;json&#x27; // 指定返回值为json格式，自动进行parse</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">	//返回数据给客户端</span><br><span class="line">	return res.data.openid</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这里也贴一下调用的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">uni.<span class="title function_">login</span>(&#123;</span><br><span class="line">	<span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">n</span>) &#123;</span><br><span class="line">		uniCloud.<span class="title function_">callFunction</span>(&#123;</span><br><span class="line">            <span class="attr">name</span>: <span class="string">&#x27;函数名称&#x27;</span>,</span><br><span class="line">            <span class="attr">data</span>: &#123;</span><br><span class="line">            	<span class="attr">code</span>: n.<span class="property">code</span></span><br><span class="line">        	&#125;,</span><br><span class="line">            <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(res)</span><br><span class="line">            &#125;,<span class="attr">fail</span>: <span class="function">() =&gt;</span> &#123;</span><br><span class="line">                <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;云函数调用失败&#x27;</span>)</span><br><span class="line">            &#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h2><p>这部分就不多介绍了 dcloud官网上都有 照着写就完事儿了 觉得复杂的话 这里贴两个demo的外链 供参考</p>
+<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/helloyoyo-p-15015649.html">uniCloud 基础示例（增、删、改、查）</a></p>
+<p><a target="_blank" rel="noopener" href="http://t.zoukankan.com/lovejielive-p-14523737.html">uniCloud的简单使用 增删改查</a></p>
+<h2 id="预告"><a href="#预告" class="headerlink" title="预告"></a>预告</h2><p>这里应该还有一个云函数支付和云函数海报的但是还在操作中 这里先记录这么多 后续再来整理补充…</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">忘忧君</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/">http://example.com/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">忘忧君の部落格</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/06/05/nvm%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">nvmの使用体验</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">忘忧君</div><div class="author-info__description"></div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#uniapp%E9%A1%B9%E7%9B%AE%E8%BD%AC-unicloud"><span class="toc-number">1.</span> <span class="toc-text">uniapp项目转 unicloud</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96openid"><span class="toc-number">2.</span> <span class="toc-text">获取openid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A2%9E%E5%88%A0%E6%94%B9%E6%9F%A5"><span class="toc-number">3.</span> <span class="toc-text">增删改查</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%91%8A"><span class="toc-number">4.</span> <span class="toc-text">预告</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/" title="unicloud初体验"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="unicloud初体验"/></a><div class="content"><a class="title" href="/2022/06/25/unicloud%E5%88%9D%E4%BD%93%E9%AA%8C/" title="unicloud初体验">unicloud初体验</a><time datetime="2022-06-24T16:00:00.000Z" title="发表于 2022-06-25 00:00:00">2022-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/05/nvm%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/" title="nvmの使用体验"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nvmの使用体验"/></a><div class="content"><a class="title" href="/2022/06/05/nvm%E3%81%AE%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C/" title="nvmの使用体验">nvmの使用体验</a><time datetime="2022-06-04T16:00:00.000Z" title="发表于 2022-06-05 00:00:00">2022-06-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/24/ERESOLVE%20unable%20to%20resolve%20dependency%20tree/" title="ERESOLVE unable to resolve dependency tree"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/22.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ERESOLVE unable to resolve dependency tree"/></a><div class="content"><a class="title" href="/2022/04/24/ERESOLVE%20unable%20to%20resolve%20dependency%20tree/" title="ERESOLVE unable to resolve dependency tree">ERESOLVE unable to resolve dependency tree</a><time datetime="2022-04-23T16:00:00.000Z" title="发表于 2022-04-24 00:00:00">2022-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git在idea中的使用"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16996.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="git在idea中的使用"/></a><div class="content"><a class="title" href="/2022/04/22/git%E5%9C%A8idea%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8/" title="git在idea中的使用">git在idea中的使用</a><time datetime="2022-04-21T16:00:00.000Z" title="发表于 2022-04-22 00:00:00">2022-04-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/16/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/16905.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2022/04/16/hello-world/" title="Hello World">Hello World</a><time datetime="2022-04-16T08:55:40.674Z" title="发表于 2022-04-16 16:55:40">2022-04-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 忘忧君</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '028LG3tXWBlTv9KtEc2ln5Uc-MdYXbMMI',
+      appKey: 'Ys3X550qDvrRU8JW5S7KhQTM',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
