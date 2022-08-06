@@ -1,4 +1,8 @@
-http://example.com/2022/08/06/vmware%E5%AE%89%E8%A3%85centos7/
+http://example.com/2020/05/06/vmware%E5%AE%89%E8%A3%85centos7/
+http://example.com/2020/05/06/linux%E5%AF%B9redis%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
+http://example.com/2020/05/06/linux%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
+http://example.com/2020/05/06/linux%E5%AF%B9nginx%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
+http://example.com/2020/05/06/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
 http://example.com/shuoshuo/index.html
 http://example.com/2021/06/28/js%20%E6%97%A5%E6%9C%9F%E5%B7%A5%E5%85%B7%E7%B1%BB%E4%B8%93%E5%9C%BA/
 http://example.com/2021/06/12/%E5%85%B3%E4%BA%8E%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E4%BC%A0%E5%8F%82%E5%B8%83%E5%B0%94%E5%80%BC%E4%BC%9A%E6%94%B9%E5%8F%98%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/
@@ -14,14 +18,10 @@ http://example.com/about/index.html
 http://example.com/link/index.html
 http://example.com/tags/index.html
 http://example.com/categories/index.html
-http://example.com/2022/07/27/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
-http://example.com/2022/07/27/linux%E5%AF%B9redis%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
-http://example.com/2022/07/27/linux%E5%AF%B9nginx%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/
-http://example.com/2022/07/27/linux%E9%83%A8%E7%BD%B2%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
 http://example.com/
 http://example.com/tags/nginx/
 http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/
-http://example.com/tags/redis/
 http://example.com/tags/vue/
+http://example.com/tags/redis/
 http://example.com/tags/Linux%E6%93%8D%E4%BD%9C/
 http://example.com/categories/Linux/
