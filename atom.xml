@@ -103,27 +103,6 @@
   </entry>
   
   <entry>
-    <title>GitHub 搭建图床</title>
-    <link href="http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
-    <id>http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
-    <published>2022-04-12T16:00:00.000Z</published>
-    <updated>2022-04-21T12:24:04.744Z</updated>
-    
-    <content type="html"><![CDATA[<p>平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床</p><h3 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h3><blockquote><p>在搭建前需要确保你拥有一个github账号，没有的话快去注册一个→ <a href="https://github.com/signup">传送门</a>  </p></blockquote><h4 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h4><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421165817401.png"></p><p>创建是仓库选择公开，其他可以使用默认配置，完成点击创建</p><h4 id="使用PicGo上传图片"><a href="#使用PicGo上传图片" class="headerlink" title="使用PicGo上传图片"></a>使用PicGo上传图片</h4><p>PicGo是一个开源软件，使用它能更方便简单的上传图片，并且国内访问github延时高我们上传时可以通过picgo拼接cdn，也可以生成markdown地址方便我们直接使用。</p><h5 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h5><blockquote><p><a href="https://molunerfinn.com/PicGo/">https://molunerfinn.com/PicGo/</a></p></blockquote><h5 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h5><p>首先需要在GitHub上配置token 用于picgo操作github仓库<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170321339.png" style="zoom:50%;" />然后在最底部找到Developer settings<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170359013.png" style="zoom:33%;" /></p><p>然后和图示相同创建一条token<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170450895.png"></p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170653597.png"></p><p>这时就会产生一条token，！！！(这里token要保存下来，因为只显示一次 没保存下次又要重新来过了。然后我们打开picgo的GitHub图床设置如下图 填写仓库名称也就是[用户名&#x2F;仓库名称], token填写刚刚的，这里可以设置自定义域名也可以置空默认，这里我填的时jsdelivr的cdn加速</p><blockquote><p><a href="https://cdn.jsdelivr.net/gh/[%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%90%8D]">https://cdn.jsdelivr.net/gh/[用户名/仓库名]</a></p></blockquote><p>这里要注意一定要设置为默认图床，不然默认会使用sm图床可能会报错~</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/Snipaste_2022-04-21_17-54-25.png"></p><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>搭建到这里就完成了，前面使用了 PicGo 工具快速上传图片并获取图片 URL 链接，方便了很多，但是每次都要先在 PicGo 中进行上传，然后将剪切板中链接复制到 MarkDown 编辑器中，有没有更优雅简便的方式，可以将两步合二为一呢？</p><p>可以通过设置typora结合picgo将步骤化繁为简</p><h5 id="Typora配置PicGo上传"><a href="#Typora配置PicGo上传" class="headerlink" title="Typora配置PicGo上传"></a>Typora配置PicGo上传</h5><h6 id="PicGo端"><a href="#PicGo端" class="headerlink" title="PicGo端"></a>PicGo端</h6><p>打开picgo设置找到设置server 开放，设置成打开并开放36677端口 新版默认都是打开的，打开的查看确认下就好</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/serverPort.png"></p><h6 id="Typora端"><a href="#Typora端" class="headerlink" title="Typora端"></a>Typora端</h6><p>打开Typora选择   <strong><code>文件→偏好设置</code></strong>   然后选择  <strong><code>图像</code></strong>  接着按照图片上的序号操作这样写文章时直接复制图片到md文件中就能够自动上传了</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421201320799.png" alt="image-20220421201320799"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床&lt;/p&gt;
-&lt;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Git的相关使用介绍</title>
     <link href="http://example.com/2022/04/13/git%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/"/>
     <id>http://example.com/2022/04/13/git%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8%E4%BB%8B%E7%BB%8D/</id>
@@ -140,6 +119,27 @@
 &lt;ul&gt;
 &lt;li&gt;本地仓库：开发者电脑上的git项目仓库&lt;/li&gt;
 &lt;li&gt;远程仓库：远程服务</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GitHub 搭建图床</title>
+    <link href="http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/"/>
+    <id>http://example.com/2022/04/13/github%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/</id>
+    <published>2022-04-12T16:00:00.000Z</published>
+    <updated>2022-04-21T12:24:04.744Z</updated>
+    
+    <content type="html"><![CDATA[<p>平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床</p><h3 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h3><blockquote><p>在搭建前需要确保你拥有一个github账号，没有的话快去注册一个→ <a href="https://github.com/signup">传送门</a>  </p></blockquote><h4 id="创建github仓库"><a href="#创建github仓库" class="headerlink" title="创建github仓库"></a>创建github仓库</h4><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421165817401.png"></p><p>创建是仓库选择公开，其他可以使用默认配置，完成点击创建</p><h4 id="使用PicGo上传图片"><a href="#使用PicGo上传图片" class="headerlink" title="使用PicGo上传图片"></a>使用PicGo上传图片</h4><p>PicGo是一个开源软件，使用它能更方便简单的上传图片，并且国内访问github延时高我们上传时可以通过picgo拼接cdn，也可以生成markdown地址方便我们直接使用。</p><h5 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h5><blockquote><p><a href="https://molunerfinn.com/PicGo/">https://molunerfinn.com/PicGo/</a></p></blockquote><h5 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h5><p>首先需要在GitHub上配置token 用于picgo操作github仓库<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170321339.png" style="zoom:50%;" />然后在最底部找到Developer settings<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170359013.png" style="zoom:33%;" /></p><p>然后和图示相同创建一条token<img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170450895.png"></p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421170653597.png"></p><p>这时就会产生一条token，！！！(这里token要保存下来，因为只显示一次 没保存下次又要重新来过了。然后我们打开picgo的GitHub图床设置如下图 填写仓库名称也就是[用户名&#x2F;仓库名称], token填写刚刚的，这里可以设置自定义域名也可以置空默认，这里我填的时jsdelivr的cdn加速</p><blockquote><p><a href="https://cdn.jsdelivr.net/gh/[%E7%94%A8%E6%88%B7%E5%90%8D/%E4%BB%93%E5%BA%93%E5%90%8D]">https://cdn.jsdelivr.net/gh/[用户名/仓库名]</a></p></blockquote><p>这里要注意一定要设置为默认图床，不然默认会使用sm图床可能会报错~</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/Snipaste_2022-04-21_17-54-25.png"></p><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><p>搭建到这里就完成了，前面使用了 PicGo 工具快速上传图片并获取图片 URL 链接，方便了很多，但是每次都要先在 PicGo 中进行上传，然后将剪切板中链接复制到 MarkDown 编辑器中，有没有更优雅简便的方式，可以将两步合二为一呢？</p><p>可以通过设置typora结合picgo将步骤化繁为简</p><h5 id="Typora配置PicGo上传"><a href="#Typora配置PicGo上传" class="headerlink" title="Typora配置PicGo上传"></a>Typora配置PicGo上传</h5><h6 id="PicGo端"><a href="#PicGo端" class="headerlink" title="PicGo端"></a>PicGo端</h6><p>打开picgo设置找到设置server 开放，设置成打开并开放36677端口 新版默认都是打开的，打开的查看确认下就好</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/serverPort.png"></p><h6 id="Typora端"><a href="#Typora端" class="headerlink" title="Typora端"></a>Typora端</h6><p>打开Typora选择   <strong><code>文件→偏好设置</code></strong>   然后选择  <strong><code>图像</code></strong>  接着按照图片上的序号操作这样写文章时直接复制图片到md文件中就能够自动上传了</p><p><img src="https://cdn.jsdelivr.net/gh/forgetWorries/cloudPic/image-20220421201320799.png" alt="image-20220421201320799"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;平时写文章，经常需要插入图片，免不了需要使用图床工具把本地图片转换成链接。市面上的图床工具非常多，但很多都需要收费，有些免费的也存在着不稳定的风险。而 GitHub 不仅稳定性高，而且简单易用，关键还可以免费白嫖！下面记录下如何更好地利用 GitHub 搭建图床&lt;/p&gt;
+&lt;</summary>
       
     
     
@@ -242,6 +242,31 @@
   </entry>
   
   <entry>
+    <title>服务器开端口相关问题</title>
+    <link href="http://example.com/2020/05/22/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E7%AB%AF%E5%8F%A3%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <id>http://example.com/2020/05/22/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E7%AB%AF%E5%8F%A3%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98/</id>
+    <published>2020-05-21T16:00:00.000Z</published>
+    <updated>2022-08-07T07:55:42.364Z</updated>
+    
+    <content type="html"><![CDATA[<p>服务器开端口是部署的必要操作，简单记录下 这里将从虚拟机开和云服务器开两种不同场景进行记录</p><h2 id="虚拟机开端口"><a href="#虚拟机开端口" class="headerlink" title="虚拟机开端口"></a>虚拟机开端口</h2><h3 id="1-检查防火墙状态"><a href="#1-检查防火墙状态" class="headerlink" title="1. 检查防火墙状态"></a>1. 检查防火墙状态</h3><p>输入<code>systemctl status firewalld</code> 查看当前防火墙状态 当看到图示的绿灯状态时 证明此时防火墙是开启的</p><p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic@main/image-20220807114805949.png" alt="img"></p><p>一般都是默认开启的 这里我们也贴一下防火墙的相关命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start firewalld// 开启防火墙</span><br><span class="line">systemctl stop firewalld// 关闭防火墙</span><br><span class="line">systemctl restart firewalld// 重启防火墙</span><br></pre></td></tr></table></figure><h3 id="2-开放对应端口"><a href="#2-开放对应端口" class="headerlink" title="2. 开放对应端口"></a>2. 开放对应端口</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp// 查看已开放端口</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic@main/image-20220807120447815.png" alt="image-20220807120447815"></p><p>确认没有开通后 通过下方命令开端口</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --add-port=端口号/tcp --permanent</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic@main/image-20220807120557311.png" alt="image-20220807120557311"></p><p>当命令行返回success时代表操作成功，这里我们还需要保存设置 才能生效</p><p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic@main/image-20220807121052680.png" alt="image-20220807121052680"></p><p>返回<code>success</code>后我们通过查看端口开放命令查询一下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=端口号/tcp</span><br></pre></td></tr></table></figure><p><img src="https://cdn.jsdelivr.net/gh/wwwyyj/cloudPic@main/image-20220807121026524.png" alt="image-20220807121026524"></p><p>这样对应端口就已经开放成功了</p><h3 id="3-区别点"><a href="#3-区别点" class="headerlink" title="3. 区别点"></a>3. 区别点</h3><p>上述方式对于虚拟机来说开通端口的步骤就已经完成了 但云服务器还没有 云服务器都有对应安全组 除了在服务器上开端口时 我们还需要去服务器商网站上开通安全组，才算正式开通</p><ul><li><h4 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h4></li></ul><p>功能搜索安全组 在入方向添加对应端口及IP范围即可</p><p><img src="https://img-blog.csdnimg.cn/20200824223534985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6YzI2NDQ0ODE3ODk=,size_16,color_FFFFFF,t_70" alt="img"></p><ul><li><h4 id="腾讯云"><a href="#腾讯云" class="headerlink" title="腾讯云"></a>腾讯云</h4></li></ul><p>腾讯云使用感觉上要相对麻烦些  配置与阿里云服务器相同 但是可能会存在配置无效的可能会是防火墙或者生效时间延缓等可能 具体可在官网查看</p><h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;服务器开端口是部署的必要操作，简单记录下 这里将从虚拟机开和云服务器开两种不同场景进行记录&lt;/p&gt;
+&lt;h2 id=&quot;虚拟机开端口&quot;&gt;&lt;a href=&quot;#虚拟机开端口&quot; class=&quot;headerlink&quot; title=&quot;虚拟机开端口&quot;&gt;&lt;/a&gt;虚拟机开端口&lt;/h2&gt;&lt;h3 </summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="环境部署" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux部署及基础环境配置(二)</title>
     <link href="http://example.com/2020/05/06/linux%E5%AF%B9nginx%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
     <id>http://example.com/2020/05/06/linux%E5%AF%B9nginx%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
@@ -261,29 +286,6 @@
     <category term="nginx" scheme="http://example.com/tags/nginx/"/>
     
     <category term="环境部署" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux部署及基础环境配置(四)</title>
-    <link href="http://example.com/2020/05/06/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
-    <id>http://example.com/2020/05/06/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
-    <published>2020-05-05T16:00:00.000Z</published>
-    <updated>2022-08-06T16:33:45.266Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/ed8fae692a100101268339d836452c9046b2f478134fe0ca31089b000459981cc1d62217e105ba014619c323a3d6c1fe?pictype=scale&from=30013&version=3.3.3.3&uin=1643994375&fname=u=3472426374,1500119397&fm=26&gp=0.jpg&size=750"><br>记录一下关于node环境的安装及vue的打包部署<span id="more"></span></p><h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><p>这里我们可以去node的官网下载node的tar包 上传至服务器进行解压 </p><ol><li>tar -xvf   node-v10.13.0-linux-x64.tar #解压   </li><li>mv node-v10.13.0-linux-x64  nodejs #重命名</li><li>确定nodejs文件夹中是否包含 node文件夹</li><li>建立软连接，改变为全局(这里一定要注意不要写错)<ol><li>ln -s &#x2F;app&#x2F;software&#x2F;nodejs&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;local&#x2F;bin&#x2F; </li><li>ln -s &#x2F;app&#x2F;software&#x2F;nodejs&#x2F;bin&#x2F;node &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</li></ol></li><li>安装cnpm–国内镜像速度比npm快很多<ol><li>npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></li><li>ln -s &#x2F;home&#x2F;node&#x2F;node-v6.11.5-linux-x86&#x2F;bin&#x2F;cnpm &#x2F;usr&#x2F;local&#x2F;bin&#x2F;cnpm</li></ol></li><li>安装vue脚手架vue-cli <ol><li>cnpm install -g vue-cli</li><li>ln -s &#x2F;home&#x2F;formularoom&#x2F;env&#x2F;node-v8.1.2-linux-x64&#x2F;bin&#x2F;vue &#x2F;usr&#x2F;local&#x2F;bin&#x2F;vue</li></ol></li></ol><h2 id="vue打包"><a href="#vue打包" class="headerlink" title="vue打包"></a>vue打包</h2><p>当我们使用vue-cli脚手架完成一个项目的时候，下一步肯定会想要怎么把这个项目放到互联网上或者本地直接打开呢，我们在本地调试的时候只要命令行执行npm run dev就可以把这个项目跑起来，但是现在我们要把他放到服务器上的话用npm run build命令就可以啦。<br><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/c491add109360111041059ac4d2f372c02e34d6fd893f8f4aabc9ba9e8e32f9f5458f076d33213218b3a1b5ecdd823c6?pictype=scale&from=30013&version=3.3.3.3&uin=1643994375&fname=b8e81b31gy1fv36s1uk7yj20rt0eawgb.jpg&size=750"><br>在执行完成后会生成一个dist的文件夹 我们将文件中的static文件夹和index页面打包上传服务器</p><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>在图中能够清晰的看到文件中有一个提示tip:xxxx HTTP server; 这里就是告诉我们 vue打包后需要一个http服务 才能够启动 可以使用apache nginx等 这里我们记录使用nginx配置的过程</p><h2 id="nginx部署vue"><a href="#nginx部署vue" class="headerlink" title="nginx部署vue"></a>nginx部署vue</h2><p>nginx部署vue就显得十分简单了 在nginx中新启一个server 将文件填写如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen &#123;port&#125;;</span><br><span class="line">        server_name www.xxxx.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            alias /address/...;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">配置完成后保存文件 检查当前nginx配置是否书写正确 然后重启nginx即可</span><br></pre></td></tr></table></figure><h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/ed8fae692a100101268339d836452c9046b2f478134fe0ca31089b000459981cc1d62217e105ba014619c323a3d6c1fe?pictype=scale&amp;from=30013&amp;version=3.3.3.3&amp;uin=1643994375&amp;fname=u=3472426374,1500119397&amp;fm=26&amp;gp=0.jpg&amp;size=750&quot;&gt;&lt;br&gt;记录一下关于node环境的安装及vue的打包部署</summary>
-    
-    
-    
-    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
-    
-    
-    <category term="环境部署" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
-    
-    <category term="vue" scheme="http://example.com/tags/vue/"/>
     
   </entry>
   
@@ -330,6 +332,29 @@
     <category term="环境部署" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
     
     <category term="Linux操作" scheme="http://example.com/tags/Linux%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux部署及基础环境配置(四)</title>
+    <link href="http://example.com/2020/05/06/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/"/>
+    <id>http://example.com/2020/05/06/linux%E5%AF%B9vue%E7%8E%AF%E5%A2%83%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/</id>
+    <published>2020-05-05T16:00:00.000Z</published>
+    <updated>2022-08-06T16:33:45.266Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/ed8fae692a100101268339d836452c9046b2f478134fe0ca31089b000459981cc1d62217e105ba014619c323a3d6c1fe?pictype=scale&from=30013&version=3.3.3.3&uin=1643994375&fname=u=3472426374,1500119397&fm=26&gp=0.jpg&size=750"><br>记录一下关于node环境的安装及vue的打包部署<span id="more"></span></p><h2 id="所需环境"><a href="#所需环境" class="headerlink" title="所需环境"></a>所需环境</h2><p>这里我们可以去node的官网下载node的tar包 上传至服务器进行解压 </p><ol><li>tar -xvf   node-v10.13.0-linux-x64.tar #解压   </li><li>mv node-v10.13.0-linux-x64  nodejs #重命名</li><li>确定nodejs文件夹中是否包含 node文件夹</li><li>建立软连接，改变为全局(这里一定要注意不要写错)<ol><li>ln -s &#x2F;app&#x2F;software&#x2F;nodejs&#x2F;bin&#x2F;npm &#x2F;usr&#x2F;local&#x2F;bin&#x2F; </li><li>ln -s &#x2F;app&#x2F;software&#x2F;nodejs&#x2F;bin&#x2F;node &#x2F;usr&#x2F;local&#x2F;bin&#x2F;</li></ol></li><li>安装cnpm–国内镜像速度比npm快很多<ol><li>npm install -g cnpm –registry&#x3D;<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a></li><li>ln -s &#x2F;home&#x2F;node&#x2F;node-v6.11.5-linux-x86&#x2F;bin&#x2F;cnpm &#x2F;usr&#x2F;local&#x2F;bin&#x2F;cnpm</li></ol></li><li>安装vue脚手架vue-cli <ol><li>cnpm install -g vue-cli</li><li>ln -s &#x2F;home&#x2F;formularoom&#x2F;env&#x2F;node-v8.1.2-linux-x64&#x2F;bin&#x2F;vue &#x2F;usr&#x2F;local&#x2F;bin&#x2F;vue</li></ol></li></ol><h2 id="vue打包"><a href="#vue打包" class="headerlink" title="vue打包"></a>vue打包</h2><p>当我们使用vue-cli脚手架完成一个项目的时候，下一步肯定会想要怎么把这个项目放到互联网上或者本地直接打开呢，我们在本地调试的时候只要命令行执行npm run dev就可以把这个项目跑起来，但是现在我们要把他放到服务器上的话用npm run build命令就可以啦。<br><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/c491add109360111041059ac4d2f372c02e34d6fd893f8f4aabc9ba9e8e32f9f5458f076d33213218b3a1b5ecdd823c6?pictype=scale&from=30013&version=3.3.3.3&uin=1643994375&fname=b8e81b31gy1fv36s1uk7yj20rt0eawgb.jpg&size=750"><br>在执行完成后会生成一个dist的文件夹 我们将文件中的static文件夹和index页面打包上传服务器</p><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><p>在图中能够清晰的看到文件中有一个提示tip:xxxx HTTP server; 这里就是告诉我们 vue打包后需要一个http服务 才能够启动 可以使用apache nginx等 这里我们记录使用nginx配置的过程</p><h2 id="nginx部署vue"><a href="#nginx部署vue" class="headerlink" title="nginx部署vue"></a>nginx部署vue</h2><p>nginx部署vue就显得十分简单了 在nginx中新启一个server 将文件填写如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen &#123;port&#125;;</span><br><span class="line">        server_name www.xxxx.com;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            alias /address/...;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">配置完成后保存文件 检查当前nginx配置是否书写正确 然后重启nginx即可</span><br></pre></td></tr></table></figure><h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/ed8fae692a100101268339d836452c9046b2f478134fe0ca31089b000459981cc1d62217e105ba014619c323a3d6c1fe?pictype=scale&amp;from=30013&amp;version=3.3.3.3&amp;uin=1643994375&amp;fname=u=3472426374,1500119397&amp;fm=26&amp;gp=0.jpg&amp;size=750&quot;&gt;&lt;br&gt;记录一下关于node环境的安装及vue的打包部署</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    
+    
+    <category term="环境部署" scheme="http://example.com/tags/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/"/>
+    
+    <category term="vue" scheme="http://example.com/tags/vue/"/>
     
   </entry>
   
